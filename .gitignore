@@ -1,0 +1,9 @@
+# Nix
+/.direnv
+
+# VSCode
+.vscode/*
+!.vscode/extensions.json
+
+# Cargo
+/target

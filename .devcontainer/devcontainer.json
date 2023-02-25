@@ -1,0 +1,20 @@
+{
+  "name": "devcontainer for SnO2WMaN/rust-calc",
+  "image": "mcr.microsoft.com/devcontainers/base:bullseye",
+  "features": {
+    "ghcr.io/devcontainers/features/nix:1": {},
+    "ghcr.io/bananalab/devcontainer-features/direnv:0": {},
+  },
+  "postCreateCommand": "bash ./.devcontainer/postCreateCommand.sh",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "EditorConfig.EditorConfig",
+        "jnoortheen.nix-ide",
+        "mkhl.direnv",
+        "rust-lang.rust-analyzer",
+        "tamasfe.even-better-toml"
+      ],
+    }
+  }
+}
