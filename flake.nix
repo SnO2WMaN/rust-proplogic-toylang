@@ -34,7 +34,9 @@
           ];
         };
 
-        toolchain = pkgs.rust-bin.stable.latest.default;
+        toolchain = pkgs.rust-bin.stable.latest.default.override {
+          extensions = ["rust-src"];
+        };
 
         naersk = pkgs.callPackage inputs.naersk {
           cargo = toolchain;
