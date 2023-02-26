@@ -12,17 +12,20 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };
+    naersk = {
+      url = "github:nix-community/naersk";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs =
-    { self
-    , nixpkgs
-    , flake-utils
-    , ...
-    } @ inputs:
+  outputs = {
+    self,
+    nixpkgs,
+    flake-utils,
+    ...
+  } @ inputs:
     flake-utils.lib.eachDefaultSystem (
-      system:
-      let
+      system: let
         pkgs = import nixpkgs {
           inherit system;
           overlays = with inputs; [
@@ -30,14 +33,29 @@
             rust-overlay.overlays.default
           ];
         };
-      in
-      {
+
+        toolchain = pkgs.rust-bin.stable.latest.default;
+
+        naersk = pkgs.callPackage inputs.naersk {
+          cargo = toolchain;
+          rustc = toolchain;
+        };
+      in {
+        packages.default = naersk.buildPackage {
+          src = ./.;
+        };
+        apps.default = flake-utils.lib.mkApp {
+          name = "rust-calc";
+          drv = self.packages.${system}.default;
+        };
+
         devShells.default = pkgs.devshell.mkShell {
-          packages = with pkgs; [
-            nixpkgs-fmt
-            direnv
-            rust-bin.stable.latest.default
-          ];
+          packages =
+            [toolchain]
+            ++ (with pkgs; [
+              direnv
+              alejandra
+            ]);
         };
       }
     );
