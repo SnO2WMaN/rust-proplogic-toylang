@@ -1,3 +1,4 @@
+/*
 use anyhow::Result;
 use clap::Parser;
 
@@ -10,11 +11,22 @@ struct Args {
   eval: String,
 }
 
-fn main() -> Result<()> {
+fn main() {
   let args = Args::parse();
 
   let tokens = tokenizer::tokenize(&args.eval)?;
   println!("Tokens: {:?}", tokens);
 
   Ok(())
+}
+*/
+
+use crate::tokenizer::tokenize;
+use anyhow::{Ok, Result};
+
+mod tokenizer;
+
+fn main() {
+  let tokens = tokenize("∨(∧(p,q),r)");
+  println!("{:?}", tokens);
 }
