@@ -55,6 +55,7 @@
             ++ (with pkgs; [
               direnv
               alejandra
+              taplo-cli
             ]);
         };
       }

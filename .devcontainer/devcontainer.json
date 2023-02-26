@@ -15,6 +15,10 @@
         "rust-lang.rust-analyzer",
         "tamasfe.even-better-toml"
       ],
+      "settings": {
+        "nix.formatterPath": "alejandra",
+        "evenBetterToml.taplo.path": "taplo"
+      }
     }
   }
 }

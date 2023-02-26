@@ -1,0 +1,4 @@
+{
+  "nix.formatterPath": "alejandra",
+  "evenBetterToml.taplo.path": "taplo"
+}

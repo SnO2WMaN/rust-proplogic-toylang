@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "EditorConfig.EditorConfig",
+    "jnoortheen.nix-ide",
+    "mkhl.direnv",
+    "rust-lang.rust-analyzer",
+    "tamasfe.even-better-toml",
+  ]
+}
