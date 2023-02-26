@@ -1,7 +1,7 @@
 ## Propositional Logic
 
 ```
-Var       := φ | ψ | χ
+Var       := p | q | r | s | t
 Lfn0      := ⊤ | ⊥
 Lfn1      := ¬
 Lfn2      := ∧ | ∨ | → | ↔
