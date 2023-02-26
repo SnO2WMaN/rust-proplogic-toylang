@@ -5,3 +5,6 @@ echo "extra-experimental-features = nix-command flakes" | sudo tee /etc/nix/nix.
 
 # Allow direnv
 direnv allow
+
+# Print Nix version
+nix develop --command sh -c "nix --version"
