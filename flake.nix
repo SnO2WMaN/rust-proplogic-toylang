@@ -47,9 +47,10 @@
           src = ./.;
         };
         apps.default = flake-utils.lib.mkApp {
-          name = "rust-calc";
+          name = "rust-proplogic-toylang";
           drv = self.packages.${system}.default;
         };
+        checks.default = self.packages.${system}.default;
 
         devShells.default = pkgs.devshell.mkShell {
           packages =
@@ -58,6 +59,7 @@
               direnv
               alejandra
               taplo-cli
+              actionlint
             ]);
         };
       }

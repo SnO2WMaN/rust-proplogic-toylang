@@ -1,5 +1,5 @@
 [package]
-name = "rust-calc"
+name = "rust-proplogic-toylang"
 version = "0.1.0"
 edition = "2021"
 
